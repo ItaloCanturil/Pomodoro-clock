@@ -14,7 +14,12 @@ const audio = document.querySelector('audio')
 
 audio.addEventListener('canplaythrough', function(){
   audio.play();
+  audio.duration();
 });
+
+audio.addEventListener('loadeddata', () => {
+  let duration = audio.duration;
+})
 
 $start.addEventListener("click", (e) => {
   let time = startingMinutes * 60;
@@ -24,8 +29,8 @@ $start.addEventListener("click", (e) => {
 });
 
 $pause.addEventListener("click", (e) =>{
-  pause();
   $pause.style.display = 'none';
+  pause();
 });
 
 $reset.addEventListener("click", (e) =>{
@@ -65,6 +70,10 @@ function updateCountdown(a){
     clearInterval(myIntervalId);
     audio.play();
   }
+  if (a.value > 0){
+    audio.pause();
+  }
+
 }
 
 function pause(){
