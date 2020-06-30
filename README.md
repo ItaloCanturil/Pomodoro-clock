@@ -2,7 +2,7 @@
 
           Countdown with is techinique Pomodoro, this project uses Javascript, HTML and CSS
 
-                        <img src="pomodoro-clock.png" alt="Pomodoro clock"/>
+                        <img src="./pomodoro-clock.png" alt="Pomodoro clock"/>
 
 
 ## Tools
