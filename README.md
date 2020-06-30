@@ -1,7 +1,7 @@
  #                                    Pomodoro-clock
 
           Countdown with is techinique Pomodoro, this project uses Javascript, HTML and CSS
-
+----------------------------------
                         <img src="https://raw.githubusercontent.com/Canturilsnaik/Pomodoro-clock/master/pomodoro-clock.png" alt="Pomodoro clock"/>
 
 
