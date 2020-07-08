@@ -46,7 +46,7 @@ input{
 #pause{
   display: none;
   position: absolute;
-  width: 65px;
+  max-width: 66px;
   text-align: center;
 }
 

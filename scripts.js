@@ -1,34 +1,27 @@
-const $start = document.getElementById('start');
-const $pause = document.getElementById('pause');
-const $reset = document.getElementById('reset');
-const $arrowUp = document.querySelector('.arrow-up')
-const $arrowDown = document.querySelector('.arrow-down')
-const countdownElement = document.getElementById('countdown');
-const pElement = document.querySelector('.p-element')
+const $start = document.getElementById('start'),
+      $pause = document.getElementById('pause'),
+      $reset = document.getElementById('reset'),
+      $arrowUp = document.querySelector('.arrow-up'),
+      $arrowDown = document.querySelector('.arrow-down'),
+      $title = document.querySelector('.conteiner > h2')
+      countdownElement = document.getElementById('countdown'),
+      pElement = document.querySelector('.p-element'),
+      audio = document.querySelector('audio');
 
-let startingMinutes = 25;
-let time = startingMinutes * 60;
-let myIntervalId;
-
-const audio = document.querySelector('audio')
-
-audio.addEventListener('canplaythrough', function(){
-  audio.play();
-  audio.duration();
-});
-
-audio.addEventListener('loadeddata', () => {
-  let duration = audio.duration;
-})
-
+let startingMinutes = 25,
+    time = countdownElement.innerHTML,
+    myIntervalId;
+  
 $start.addEventListener("click", (e) => {
-  let time = startingMinutes * 60;
-  let coisa = {value:time}
-  myIntervalId = setInterval(updateCountdown.bind(null, coisa), 1000);
+  time = startingMinutes * 60;
+  let thing = {value:time};
+  myIntervalId = setInterval(updateCountdown.bind(null, thing), 1000);
+  console.log(time, thing)
   $pause.style.display = 'block';
 });
 
 $pause.addEventListener("click", (e) =>{
+  audio.pause();
   $pause.style.display = 'none';
   pause();
 });
@@ -70,22 +63,10 @@ function updateCountdown(a){
     clearInterval(myIntervalId);
     audio.play();
   }
-  if (a.value > 0){
-    audio.pause();
-  }
-
 }
 
 function pause(){
   clearInterval(myIntervalId);
-  countdownElement.innerHTML = time;
-  let time = startingMinutes * 60;
-  const minutes = Math.floor(time/60);
-  let seconds = time % 60;
-
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-  
-  countdownElement.innerHTML = `${minutes}:${seconds}`;
 }
 
 function reset(){
@@ -99,3 +80,22 @@ function reset(){
 
   countdownElement.innerHTML = `${minutes}:${seconds}`;
 }
+
+// function breakLength(){
+//   $title.innerHTML = "Break";
+//   breakMinutes = 5; 
+//   let time = breakMinutes * 60;
+//   const minutes = Math.floor(time/60);
+//   let seconds = time % 60;
+
+//   seconds = seconds < 10 ? '0' + seconds : seconds;
+
+//   countdownElement.innerHTML = `${minutes}:${seconds}`;
+
+//   time--;
+
+//   if(time <= 1){
+//     audio.play()
+//     reset();
+//   }
+// }
