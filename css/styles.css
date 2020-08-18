@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
 
 body {
   background: linear-gradient(to bottom, #302e2e, #fa2020) ;
@@ -15,7 +11,11 @@ body {
   color: #fafafa;
 }
 
-.conteiner {
+.header__title{
+  font-size: 2em;
+}
+
+.container {
   background: #FF6347 ;
   border-radius: 10%;
   display: flex;
@@ -37,6 +37,19 @@ body {
 
 .buttons {
   position: relative;
+}
+
+.buttons__pause, .buttons__start, .buttons__reset{
+  max-width: 50px;
+}
+
+.arrow-up, .arrow-down{
+  height: 2em;
+  width: 2em;
+}
+
+.arrow-up:active{
+  transform: rotateY(30deg);
 }
 
 input{
@@ -62,7 +75,6 @@ button {
   border: 0;
   border-radius: 8px;
   cursor: pointer;
-  width: 25px;
 }
 
 footer {

@@ -9,14 +9,11 @@ const $start = document.getElementById('start'),
       audio = document.querySelector('audio');
 
 let startingMinutes = 25,
-    time = countdownElement.innerHTML,
+    time = parseInt(countdownElement.innerHTML) * 60,
     myIntervalId;
-  
+    
 $start.addEventListener("click", (e) => {
-  time = startingMinutes * 60;
-  let thing = {value:time};
-  myIntervalId = setInterval(updateCountdown.bind(null, thing), 1000);
-  console.log(time, thing)
+  myIntervalId = setInterval(updateCountdown, 1000);
   $pause.style.display = 'block';
 });
 
@@ -43,42 +40,51 @@ function up(){
   startingMinutes += 1;
   pElement.innerHTML = `${startingMinutes} min`;
   countdownElement.innerHTML = `${startingMinutes}:00`;
+  time = startingMinutes * 60;
 }
 
 function down(){
   startingMinutes -= 1;
   pElement.innerHTML = `${startingMinutes} min`;
   countdownElement.innerHTML = `${startingMinutes}:00`;
+  time = startingMinutes * 60;
 }
 
-function updateCountdown(a){
-  const minutes = Math.floor(a.value/60);
-  let seconds = a.value % 60;
+function updateCountdown(){
+  const minutes = Math.floor(time/60);
+  let seconds = time % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
   countdownElement.innerHTML = `${minutes}:${seconds}`;
 
-  a.value--;
-  if (a.value <= -1){
+  time--;
+  if (time <= -1){
     clearInterval(myIntervalId);
     audio.play();
   }
+
+  console.log(time)
 }
 
 function pause(){
   clearInterval(myIntervalId);
+  const minutes = Math.floor(time/60);
+  let seconds = time % 60;
 }
 
 function reset(){
   clearInterval(myIntervalId);
-  let time = startingMinutes * 60;
-  const minutes = Math.floor(time/60);
-  let seconds = time % 60;
+  let calc = startingMinutes * 60;
+  time = calc;
+  const minutes = Math.floor(calc/60);
+  let seconds = calc % 60;
   $pause.style.display = 'none';
 
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
   countdownElement.innerHTML = `${minutes}:${seconds}`;
+
+  console.log(time)
 }
 
 // function breakLength(){

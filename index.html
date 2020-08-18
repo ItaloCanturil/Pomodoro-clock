@@ -5,37 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pomodoro clock</title>
 
+  <link rel="stylesheet" href="./css/reset.css"> 
   <link rel="stylesheet" href="./css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet"> 
 </head>
 <body>
-  <header>
-    <h1>Pomodoro Timer</h1>
+  <header class="header">
+    <h1 class="header__title">Pomodoro Timer</h1>
   </header>
 
-  <div class="conteiner">
+  <div class="container">
     <h2>Session</h2>
 
     <div id="countdown">25:00</div>
 
     <div class="buttons">
-      <input id="pause" type="button" value="Pause">
+      <input class="buttons__pause" id="pause" type="button" value="Pause">
 
-      <input id="start" type="button" value="Start">
+      <input class="buttons__start" id="start" type="button" value="Start">
 
-      <input id="reset" type="button" value="Reset">
+      <input class="buttons__reset" id="reset" type="button" value="Reset">
     </div>
 
 
     <div class="time-bottom">
-      <button type="submit" class="arrow-up">
-        <img src="./img/seta-para-cima.svg" alt="Arrow up">
+      <button type="submit" >
+        <img class="arrow-up" src="./img/seta-para-cima.svg" alt="Arrow up">
       </button>
 
       <p class="p-element">25 min</p>
 
-      <button type="submit" class="arrow-down">
-        <img src="./img/baixar.svg" alt="Arrow down">
+      <button type="submit" >
+        <img class="arrow-down" src="./img/baixar.svg" alt="Arrow down">
       </button>
     </div>
 
