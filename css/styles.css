@@ -59,7 +59,6 @@ input{
 #pause{
   display: none;
   position: absolute;
-  max-width: 66px;
   text-align: center;
 }
 
